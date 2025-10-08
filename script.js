@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // Special birthday message for October 9th
 function checkBirthdayDate() {
   const today = new Date();
-  const isOctober9th = today.getMonth() === 9 && today.getDate() === 8; // October is month 9 (0-indexed)
+  const isOctober9th = today.getMonth() === 9 && today.getDate() === 9; // October is month 9 (0-indexed)
 
   const birthdayContent = document.getElementById("birthday-content");
   const regularContent = document.getElementById("regular-content");
