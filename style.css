@@ -1,0 +1,1005 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #FFE4E6, #FFC0CB, #FFB6C1, #FF91A4);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    min-height: 100vh;
+    color: #8B0000;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Section */
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.floating-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+.heart:nth-child(2) { left: 20%; animation-delay: 1s; }
+.heart:nth-child(3) { left: 70%; animation-delay: 2s; }
+.heart:nth-child(4) { left: 80%; animation-delay: 3s; }
+.heart:nth-child(5) { left: 50%; animation-delay: 4s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+.main-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #C2185B;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from { text-shadow: 2px 2px 4px rgba(0,0,0,0.1), 0 0 10px rgba(194, 24, 91, 0.3); }
+    to { text-shadow: 2px 2px 4px rgba(0,0,0,0.1), 0 0 20px rgba(194, 24, 91, 0.6); }
+}
+
+.birthday-date {
+    font-size: 1.5rem;
+    color: #AD1457;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.love-message {
+    font-size: 1.2rem;
+    color: #880E4F;
+    font-style: italic;
+}
+
+.birthday-countdown {
+    font-size: 1.1rem;
+    color: #AD1457;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* Birthday Animations */
+.birthday-animations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.birthday-title {
+    animation: birthdayPulse 1.5s ease-in-out infinite alternate !important;
+}
+
+@keyframes birthdayPulse {
+    from { 
+        transform: scale(1);
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1), 0 0 20px rgba(194, 24, 91, 0.6);
+    }
+    to { 
+        transform: scale(1.05);
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1), 0 0 30px rgba(194, 24, 91, 0.9);
+    }
+}
+
+/* Falling Hearts Animation */
+.falling-heart {
+    position: fixed;
+    font-size: 2rem;
+    color: #FF69B4;
+    pointer-events: none;
+    z-index: 1000;
+    animation: heartFall 4s linear forwards;
+}
+
+@keyframes heartFall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Sparkle Animation */
+.sparkle {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, #FFD700, #FFA500);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1000;
+    animation: sparkleAnimation 2s ease-out forwards;
+}
+
+@keyframes sparkleAnimation {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Confetti Animation */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    z-index: 1000;
+    animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Party Popper Animation */
+.party-popper {
+    position: fixed;
+    font-size: 3rem;
+    pointer-events: none;
+    z-index: 1000;
+    animation: popperExplode 2s ease-out forwards;
+}
+
+@keyframes popperExplode {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.8) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Firework Animation */
+.firework {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.firework::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: inherit;
+    animation: fireworkExplosion 1.5s ease-out forwards;
+}
+
+@keyframes fireworkExplosion {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+        box-shadow: 0 0 0 0 currentColor;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+        box-shadow: 
+            0 -50px 0 -5px currentColor,
+            35px -35px 0 -5px currentColor,
+            50px 0 0 -5px currentColor,
+            35px 35px 0 -5px currentColor,
+            0 50px 0 -5px currentColor,
+            -35px 35px 0 -5px currentColor,
+            -50px 0 0 -5px currentColor,
+            -35px -35px 0 -5px currentColor;
+    }
+}
+
+/* Birthday Background Animation */
+.birthday-bg {
+    animation: birthdayBackground 3s ease-in-out infinite alternate;
+}
+
+@keyframes birthdayBackground {
+    from { 
+        background: linear-gradient(135deg, #FFE4E6, #FFC0CB, #FFB6C1, #FF91A4);
+        filter: brightness(1) saturate(1);
+    }
+    to { 
+        background: linear-gradient(135deg, #FF69B4, #FFB6C1, #FFC0CB, #FFE4E6);
+        filter: brightness(1.2) saturate(1.3);
+    }
+}
+
+/* New Birthday Animation Effects */
+
+/* Star Burst Animation */
+.star-burst {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    animation: starBurstAnimation 3s ease-out forwards;
+}
+
+@keyframes starBurstAnimation {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.5) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Floating Balloons Animation */
+.floating-balloon {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    animation: balloonFloat 8s ease-in-out forwards;
+}
+
+@keyframes balloonFloat {
+    0% {
+        transform: translateY(100vh) translateX(0px) rotate(0deg);
+        opacity: 1;
+    }
+    25% {
+        transform: translateY(75vh) translateX(20px) rotate(5deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(50vh) translateX(-15px) rotate(-3deg);
+        opacity: 1;
+    }
+    75% {
+        transform: translateY(25vh) translateX(25px) rotate(8deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) translateX(0px) rotate(0deg);
+        opacity: 0;
+    }
+}
+
+/* Shimmer Wave Animation */
+.shimmer-wave {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    border: 2px solid rgba(255, 215, 0, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1000;
+    animation: shimmerWaveAnimation 4s ease-out forwards;
+}
+
+@keyframes shimmerWaveAnimation {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+        border-width: 4px;
+    }
+    50% {
+        opacity: 0.8;
+        border-width: 2px;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+        border-width: 0px;
+    }
+}
+
+/* Rainbow Sparkles Animation */
+.rainbow-sparkle {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1000;
+    animation: rainbowSparkleAnimation 3s ease-out forwards;
+}
+
+@keyframes rainbowSparkleAnimation {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+        box-shadow: 0 0 10px currentColor;
+    }
+    25% {
+        transform: scale(1.2) rotate(90deg);
+        opacity: 1;
+        box-shadow: 0 0 20px currentColor;
+    }
+    50% {
+        transform: scale(1) rotate(180deg);
+        opacity: 1;
+        box-shadow: 0 0 15px currentColor;
+    }
+    75% {
+        transform: scale(1.5) rotate(270deg);
+        opacity: 0.8;
+        box-shadow: 0 0 25px currentColor;
+    }
+    100% {
+        transform: scale(0) rotate(360deg);
+        opacity: 0;
+        box-shadow: 0 0 5px currentColor;
+    }
+}
+
+/* Magic Dust Animation */
+.magic-dust {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background: radial-gradient(circle, #FFD700, #FFA500, #FF69B4);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1000;
+    animation: magicDustAnimation 4s linear forwards;
+}
+
+@keyframes magicDustAnimation {
+    0% {
+        transform: translateY(0px) translateX(0px) scale(0);
+        opacity: 1;
+    }
+    25% {
+        transform: translateY(-50px) translateX(20px) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-80px) translateX(-15px) scale(1.2);
+        opacity: 0.8;
+    }
+    75% {
+        transform: translateY(-100px) translateX(30px) scale(0.8);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-120px) translateX(0px) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Enhanced Birthday Pulse for Timer Boxes */
+@keyframes birthdayPulse {
+    0% {
+        transform: scale(1) translateY(0px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    50% {
+        transform: scale(1.05) translateY(-3px);
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.6), 0 8px 20px rgba(0,0,0,0.15);
+    }
+    100% {
+        transform: scale(1) translateY(0px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+}
+
+/* Mega Flash Animation for Birthday Celebration */
+@keyframes megaFlash {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    10% {
+        opacity: 0.8;
+        transform: scale(1.2);
+    }
+    30% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    60% {
+        opacity: 0.3;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+/* Enhanced Birthday Title Animation */
+.birthday-title {
+    animation: birthdayTitleSpectacular 2s ease-in-out infinite alternate !important;
+}
+
+@keyframes birthdayTitleSpectacular {
+    0% { 
+        transform: scale(1) rotate(0deg);
+        text-shadow: 
+            2px 2px 4px rgba(0,0,0,0.1), 
+            0 0 20px rgba(194, 24, 91, 0.6),
+            0 0 40px rgba(255, 215, 0, 0.4);
+        filter: hue-rotate(0deg);
+    }
+    25% {
+        transform: scale(1.02) rotate(1deg);
+        text-shadow: 
+            2px 2px 4px rgba(0,0,0,0.1), 
+            0 0 25px rgba(194, 24, 91, 0.8),
+            0 0 50px rgba(255, 215, 0, 0.6);
+        filter: hue-rotate(10deg);
+    }
+    50% {
+        transform: scale(1.05) rotate(0deg);
+        text-shadow: 
+            2px 2px 4px rgba(0,0,0,0.1), 
+            0 0 30px rgba(194, 24, 91, 0.9),
+            0 0 60px rgba(255, 215, 0, 0.8);
+        filter: hue-rotate(20deg);
+    }
+    75% {
+        transform: scale(1.03) rotate(-1deg);
+        text-shadow: 
+            2px 2px 4px rgba(0,0,0,0.1), 
+            0 0 25px rgba(194, 24, 91, 0.8),
+            0 0 50px rgba(255, 215, 0, 0.6);
+        filter: hue-rotate(10deg);
+    }
+    100% { 
+        transform: scale(1.05) rotate(0deg);
+        text-shadow: 
+            2px 2px 4px rgba(0,0,0,0.1), 
+            0 0 30px rgba(194, 24, 91, 0.9),
+            0 0 60px rgba(255, 215, 0, 0.8);
+        filter: hue-rotate(0deg);
+    }
+}
+
+/* Timer Section */
+.timer-section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 40px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 182, 193, 0.3);
+}
+
+.section-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #C2185B;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.timer-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #AD1457;
+    margin-bottom: 5px;
+}
+
+.start-date {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #880E4F;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.timer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timer-box {
+    background: linear-gradient(135deg, #FF69B4, #FFB6C1);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.timer-box:hover {
+    transform: translateY(-5px);
+}
+
+.timer-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.timer-label {
+    display: block;
+    font-size: 0.9rem;
+    color: white;
+    font-weight: 500;
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Gallery Section */
+.gallery-section {
+    margin: 60px 0;
+    padding: 0 20px;
+}
+
+.photo-collage {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 1200px;
+    padding: 40px 0 100px 0;
+}
+
+.photo-item {
+    position: absolute;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: white;
+    padding: 8px;
+    cursor: pointer;
+    animation: floatingPhoto 8s ease-in-out infinite;
+}
+
+/* Floating animation for each photo with different delays */
+@keyframes floatingPhoto {
+    0%, 100% { 
+        transform: translateY(0px) translateX(0px) rotate(var(--rotation));
+    }
+    25% { 
+        transform: translateY(-15px) translateX(5px) rotate(calc(var(--rotation) + 2deg));
+    }
+    50% { 
+        transform: translateY(-8px) translateX(-3px) rotate(var(--rotation));
+    }
+    75% { 
+        transform: translateY(-20px) translateX(8px) rotate(calc(var(--rotation) - 3deg));
+    }
+}
+
+.photo-item:nth-child(1) { animation-delay: 0s; }
+.photo-item:nth-child(2) { animation-delay: 0.5s; }
+.photo-item:nth-child(3) { animation-delay: 1s; }
+.photo-item:nth-child(4) { animation-delay: 1.5s; }
+.photo-item:nth-child(5) { animation-delay: 2s; }
+.photo-item:nth-child(6) { animation-delay: 2.5s; }
+.photo-item:nth-child(7) { animation-delay: 3s; }
+.photo-item:nth-child(8) { animation-delay: 3.5s; }
+.photo-item:nth-child(9) { animation-delay: 4s; }
+.photo-item:nth-child(10) { animation-delay: 4.5s; }
+.photo-item:nth-child(11) { animation-delay: 5s; }
+.photo-item:nth-child(12) { animation-delay: 5.5s; }
+.photo-item:nth-child(13) { animation-delay: 6s; }
+.photo-item:nth-child(14) { animation-delay: 6.5s; }
+.photo-item:nth-child(15) { animation-delay: 7s; }
+.photo-item:nth-child(16) { animation-delay: 7.5s; }
+.photo-item:nth-child(17) { animation-delay: 0.2s; }
+.photo-item:nth-child(18) { animation-delay: 0.7s; }
+.photo-item:nth-child(19) { animation-delay: 1.2s; }
+.photo-item:nth-child(20) { animation-delay: 1.7s; }
+
+.photo-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,182,193,0.1), rgba(255,105,180,0.1));
+    border-radius: 20px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.photo-item:hover::before {
+    opacity: 1;
+}
+
+.photo-item:hover {
+    transform: scale(1.15) rotate(0deg) !important;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    z-index: 100;
+    animation-play-state: paused;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.photo-overlay {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 15px;
+    border-radius: 0 0 12px 12px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: 2;
+}
+
+.photo-item:hover .photo-overlay {
+    transform: translateY(0);
+}
+
+.photo-overlay p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Individual photo positioning for collage effect - sizes will be set by JavaScript */
+.photo-item:nth-child(1) {
+    top: 20px;
+    left: 50px;
+    --rotation: -5deg;
+}
+
+.photo-item:nth-child(2) {
+    top: 60px;
+    right: 100px;
+    --rotation: 8deg;
+}
+
+.photo-item:nth-child(3) {
+    top: 180px;
+    left: 20%;
+    --rotation: 3deg;
+}
+
+.photo-item:nth-child(4) {
+    top: 120px;
+    left: 60%;
+    --rotation: -8deg;
+}
+
+.photo-item:nth-child(5) {
+    top: 300px;
+    right: 50px;
+    --rotation: 6deg;
+}
+
+.photo-item:nth-child(6) {
+    top: 250px;
+    left: 80px;
+    --rotation: -12deg;
+}
+
+.photo-item:nth-child(7) {
+    top: 400px;
+    left: 35%;
+    --rotation: 4deg;
+}
+
+.photo-item:nth-child(8) {
+    top: 350px;
+    right: 20%;
+    --rotation: -6deg;
+}
+
+.photo-item:nth-child(9) {
+    top: 520px;
+    left: 10%;
+    --rotation: 9deg;
+}
+
+.photo-item:nth-child(10) {
+    top: 480px;
+    right: 15%;
+    --rotation: -4deg;
+}
+
+.photo-item:nth-child(11) {
+    top: 600px;
+    left: 30%;
+    --rotation: -7deg;
+}
+
+.photo-item:nth-child(12) {
+    top: 580px;
+    right: 25%;
+    --rotation: 11deg;
+}
+
+.photo-item:nth-child(13) {
+    top: 720px;
+    left: 15%;
+    --rotation: 5deg;
+}
+
+.photo-item:nth-child(14) {
+    top: 680px;
+    right: 10%;
+    --rotation: -9deg;
+}
+
+.photo-item:nth-child(15) {
+    top: 820px;
+    left: 40%;
+    --rotation: 7deg;
+}
+
+.photo-item:nth-child(16) {
+    top: 780px;
+    right: 35%;
+    --rotation: -5deg;
+}
+
+.photo-item:nth-child(17) {
+    top: 920px;
+    left: 20%;
+    --rotation: 3deg;
+}
+
+.photo-item:nth-child(18) {
+    top: 880px;
+    right: 20%;
+    --rotation: -8deg;
+}
+
+.photo-item:nth-child(19) {
+    top: 1020px;
+    left: 35%;
+    --rotation: 6deg;
+}
+
+.photo-item:nth-child(20) {
+    top: 980px;
+    right: 30%;
+    --rotation: -4deg;
+}
+
+/* Heart decorations scattered around photos */
+.photo-collage::before {
+    content: '💕 💖 💗 💝 🌸 ✨ 💫 🦋';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+    word-spacing: 100px;
+    line-height: 150px;
+    animation: floatingDecorations 20s ease-in-out infinite;
+}
+
+@keyframes floatingDecorations {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Message Section */
+.message-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 80px 0 40px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 2px solid rgba(255, 182, 193, 0.3);
+}
+
+.love-letter {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #8B0000;
+}
+
+.love-letter p {
+    margin-bottom: 20px;
+}
+
+.love-letter p:first-child {
+    font-weight: 600;
+    color: #C2185B;
+}
+
+.love-letter p:last-child {
+    text-align: right;
+    font-style: italic;
+    color: #AD1457;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #880E4F;
+    font-style: italic;
+}
+
+.footer p {
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .timer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .timer-number {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .timer-section, .message-section {
+        padding: 30px 20px;
+    }
+    
+    /* Responsive collage for tablets */
+    .photo-collage {
+        min-height: 900px;
+        padding: 40px 0 80px 0;
+    }
+    
+    .photo-item {
+        animation: floatingPhotoMobile 6s ease-in-out infinite !important;
+    }
+    
+    @keyframes floatingPhotoMobile {
+        0%, 100% { 
+            transform: translateY(0px) rotate(0deg);
+        }
+        50% { 
+            transform: translateY(-10px) rotate(0deg);
+        }
+    }
+    
+    .photo-item:nth-child(1) { top: 20px; left: 20px; --rotation: 0deg; }
+    .photo-item:nth-child(2) { top: 40px; right: 20px; --rotation: 0deg; }
+    .photo-item:nth-child(3) { top: 140px; left: 15%; --rotation: 0deg; }
+    .photo-item:nth-child(4) { top: 120px; right: 15%; --rotation: 0deg; }
+    .photo-item:nth-child(5) { top: 220px; right: 30px; --rotation: 0deg; }
+    .photo-item:nth-child(6) { top: 200px; left: 30px; --rotation: 0deg; }
+    .photo-item:nth-child(7) { top: 300px; left: 25%; --rotation: 0deg; }
+    .photo-item:nth-child(8) { top: 280px; right: 25%; --rotation: 0deg; }
+    .photo-item:nth-child(9) { top: 380px; left: 10%; --rotation: 0deg; }
+    .photo-item:nth-child(10) { top: 360px; right: 10%; --rotation: 0deg; }
+    .photo-item:nth-child(11) { top: 460px; left: 30%; --rotation: 0deg; }
+    .photo-item:nth-child(12) { top: 440px; right: 30%; --rotation: 0deg; }
+    .photo-item:nth-child(13) { top: 540px; left: 15%; --rotation: 0deg; }
+    .photo-item:nth-child(14) { top: 520px; right: 15%; --rotation: 0deg; }
+    .photo-item:nth-child(15) { top: 620px; left: 35%; --rotation: 0deg; }
+    .photo-item:nth-child(16) { top: 600px; right: 35%; --rotation: 0deg; }
+    .photo-item:nth-child(17) { top: 700px; left: 20%; --rotation: 0deg; }
+    .photo-item:nth-child(18) { top: 680px; right: 20%; --rotation: 0deg; }
+    .photo-item:nth-child(19) { top: 780px; left: 30%; --rotation: 0deg; }
+    .photo-item:nth-child(20) { top: 760px; right: 30%; --rotation: 0deg; }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .timer-container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Mobile collage - simpler stacked layout */
+    .photo-collage {
+        min-height: 400px;
+        padding: 20px 0 40px 0;
+    }
+    
+    .photo-item {
+        position: relative !important;
+        width: 90% !important;
+        height: 200px !important;
+        margin: 15px auto !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        display: block;
+        animation: floatingPhotoMobile 4s ease-in-out infinite !important;
+        --rotation: 0deg;
+    }
+    
+    .photo-collage::before {
+        display: none;
+    }
+}
